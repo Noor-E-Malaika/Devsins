@@ -1,0 +1,33 @@
+.navbar-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Notification Icon */
+.notification-icon {
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+    color: #162688;
+    transition: color 0.3s ease;
+}
+
+/* Notification Badge */
+.notification-icon::after {
+    content: "3"; /* This represents the number of notifications */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Hover effect */
+.notification-icon:hover {
+    color: #0b1e57;
+}

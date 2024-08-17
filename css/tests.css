@@ -1,0 +1,78 @@
+/* Tests Section Styles */
+#tests {
+    display: block; /* Ensure section is visible */
+    margin-top: 60px;
+}
+
+#tests header {
+    margin-bottom: 20px;
+}
+
+#tests .crud-section h2 {
+    margin-bottom: 20px;
+}
+
+#tests .crud-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+#tests .crud-form input, #tests .crud-form textarea, #tests .crud-form button {
+    padding: 10px;
+    font-weight: bold;
+}
+
+#tests .crud-form textarea {
+    height: 100px;
+}
+
+#tests .crud-form input[type="file"] {
+    padding: 0;
+    font-size: 14px;
+}
+
+#tests .crud-form button {
+    cursor: pointer;
+    background-color: #162688;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+#tests .crud-form button:hover {
+    background-color: #0b1e57;
+}
+
+#tests table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tests table th, #tests table td {
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#tests table th {
+    background-color: #f4f4f4;
+}
+
+#tests table button {
+    padding: 12px 18px;
+    cursor: pointer;
+    background-color: #162688;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#tests table button:hover {
+    background-color: #0b1e57;
+}

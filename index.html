@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Home - Course Management System</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #162688;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; 
+        }
+
+        
+        .navbar {
+            width: 95vw;
+            background-color: #162688; 
+            display: flex;
+            align-items: center; 
+            padding: 15px 40px; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            justify-content: flex-end; 
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            color: skyblue;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: auto;
+            padding: 15px, 50px;
+            
+        }
+
+        .navbar a {
+            border: 1px solid skyblue;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: skyblue;
+            background-color: #162688;
+            font-weight: bold;
+            margin-left: 10px; 
+            text-align: center;
+            width: 100px; 
+        }
+
+        .navbar a:hover {
+            background-color: #1c2761; 
+        }
+
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            width: 80%; 
+            height: 400px;
+            margin-top: 100px; 
+        }
+
+        .left-section {
+            flex: 2;
+            padding: 40px;
+            padding-right: 60px; 
+        }
+
+        #welcome-text {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: skyblue; 
+            font-size: 2.5rem;
+        }
+
+        .additional-text {
+            font-size: 1.2rem;
+            color: skyblue;
+            margin-bottom: 40px; 
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #162688;
+            color: skyblue;
+            padding: 12px 24px;
+            text-decoration: none;
+            border: 1px solid skyblue;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 20px; 
+        }
+
+        .btn:hover {
+            background-color: #1c2761; 
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0; 
+        }
+
+        .right-section img {
+            width: 600px; 
+            height: auto; 
+            filter: brightness(90%);
+        }
+        
+        @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar .logo-text {
+            margin-right: 0;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            margin: 5px 0;
+            width: auto; 
+        }
+
+        .container {
+            flex-direction: column;
+            width: 90%; 
+            height: auto; 
+            margin-top: 50px; 
+        }
+
+        .left-section {
+            padding: 20px;
+            padding-right: 0; 
+            text-align: center; 
+        }
+
+        .right-section {
+            margin-left: 0; 
+            margin-top: 20px; 
+        }
+
+        .right-section img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto;
+        }
+
+        #welcome-text {
+            font-size: 1.8rem; 
+        }
+
+        .additional-text {
+            font-size: 1rem; 
+        }
+
+        .btn {
+            padding: 10px 20px; 
+        }
+    }
+    
+</style>
+
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="logo-text">Course Management System</div>
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="left-section">
+            <h1 id="welcome-text"></h1>
+            <p class="additional-text"> Empower your learning journey with our all-in-one Course Management System. 
+                Effortlessly track your progress, manage assignments, and stay organized.</p>
+            <a href="pages/register.html" class="btn">Create an Account</a>
+        </div>
+        <div class="right-section">
+            <img src="assets/web.jpeg" alt="Course Management Image">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "Welcome to Course Management System.";
+            const welcomeTextElement = document.getElementById("welcome-text");
+            let index = 0;
+
+            function typeText() {
+                if (index < text.length) {
+                    welcomeTextElement.textContent += text[index];
+                    index++;
+                    setTimeout(typeText, 100); 
+                }
+            }
+
+            typeText();
+        });
+    </script>
+</body>
+</html>

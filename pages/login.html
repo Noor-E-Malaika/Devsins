@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login - Course Management System</title>
+    
+</head>
+<body>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <!-- Social Login Section -->
+        <div class="social-login">
+            <div class="social-btn" id="google-login">
+                <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" />
+            </div>
+            <div class="social-btn" id="facebook-login">
+                <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook Icon" />
+            </div>
+            <div class="social-btn" id="twitter-login">
+                <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter Icon" />
+            </div>
+        </div>
+
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+        </div>
+    </div>
+
+    <!-- Firebase Authentication Script -->
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWWZmHi1bG7q_9Q90rIdUlfqY4aYnWRqs",
+            authDomain: "devsinz.firebaseapp.com",
+            projectId: "devsinz",
+            storageBucket: "devsinz.appspot.com",
+            messagingSenderId: "234677890551",
+            appId: "1:234677890551:web:81aa87a013aa0aeebb12f2",
+            measurementId: "G-CWL4E0V84Q"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Email/Password Login
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert('Login successful!');
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        });
+
+        // Google Login
+        document.getElementById('google-login').addEventListener('click', function() {
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    alert('Google Login successful!');
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    alert('Google Login Error: ' + error.message);
+                });
+        });
+
+        // Facebook Login
+        document.getElementById('facebook-login').addEventListener('click', function() {
+            const provider = new FacebookAuthProvider();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    alert('Facebook Login successful!');
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    alert('Facebook Login Error: ' + error.message);
+                });
+        });
+
+        // Twitter Login (Dummy Implementation as Firebase Twitter Integration requires additional setup)
+        document.getElementById('twitter-login').addEventListener('click', function() {
+            alert('Twitter login not configured yet.');
+        });
+    </script>
+</body>
+</html>
